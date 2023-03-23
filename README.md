@@ -20,16 +20,15 @@ This game is an example pixi test case.
     * v16.19.0
   * nvm use v16.19.0
 
+### Quick Setup
+
+* npm install
+* Webpack run to project
+  * npm start
+
 ### Contribution guidelines
 
 * Code review
-
-### Packager Name
-
-* Networking
-  * Fish-Networking
-* Polygon Sci-fi Worlds
-* Low Poly Shooter Pack - Free Sample | Systems
 
 ### Who do I talk to?
 
