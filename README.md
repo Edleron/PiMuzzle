@@ -26,9 +26,12 @@ This game is an example pixi test case.
 * Webpack run to project
   * npm start
 
-### Contribution guidelines
+### Target guidelines
 
 * Code review
+* Pixi New Framwork
+* Desing Structures
+* Component Pattert
 
 ### Who do I talk to?
 
