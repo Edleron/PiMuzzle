@@ -32,6 +32,9 @@ This game is an example pixi test case.
 * Pixi New Framwork
 * Desing Structures
 * Component Pattert
+* StoryBook
+* Folder Structures.
+* Js Game Engine
 
 ### Who do I talk to?
 
