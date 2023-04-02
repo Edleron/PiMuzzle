@@ -7,6 +7,7 @@ export class MainScene {
         this.container = new PIXI.Container();
         this.createBackground();
         this.createPuzzleGrid();
+        console.log("test");
     }
 
     createBackground() {
