@@ -19,9 +19,15 @@ export class PuzzleGrid {
             const random = Math.floor(Math.random() * ids.length);
             const id = ids[random];
             ids = ids.filter(item => item !== id);
+
             const piece = new PuzzlePiece(id, field);
+            piece.on("dragend", () => this.onPieceDrandEnd());
             this.container.addChild(piece.sprite);
             this.pieces.push(piece);
         });
+    }
+
+    onPieceDrandEnd() {
+        pieces.reset();
     }
 }
