@@ -22,7 +22,7 @@ export class PuzzlePiece extends PIXI.utils.EventEmitter {
     onTouchStart(event) {
         this.touchPosition = { x: event.data.global.x, y: event.data.global.y };
         this.dragging = true;
-        this.sprite.zIndex = 1;
+        this.sprite.zIndex = 2;
     }
 
     onTouchMove(event) {
@@ -39,14 +39,35 @@ export class PuzzlePiece extends PIXI.utils.EventEmitter {
         this.sprite.y = this.field.y + offsetY;
     }
 
-    onTouchEnd(event) {
-        this.dragging = false;
-        this.sprite.zIndex = 0;
-        this.emit("dragend");
-    }
-
     reset() {
         this.sprite.x = this.field.x;
         this.sprite.y = this.field.y;
+    }
+
+    onTouchEnd(event) {
+        this.dragging = false;
+        this.sprite.zIndex = 1;
+        this.emit("dragend");
+    }
+
+    get left() {
+        return this.sprite.x - this.sprite.width / 2;
+    }
+
+    get right() {
+        return this.sprite.x + this.sprite.width / 2;
+    }
+
+    get top() {
+        return this.sprite.y - this.sprite.height / 2;
+    }
+
+    get bottom() {
+        return this.sprite.y + this.sprite.height / 2;
+    }
+
+    setField(field) {
+        this.field = field;
+        this.reset();
     }
 }
