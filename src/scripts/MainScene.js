@@ -5,6 +5,10 @@ import { PuzzleGrid } from "./PuzzleGrid";
 export class MainScene {
     constructor() {
         this.container = new PIXI.Container();
+        Globals.resources.music.sound.play({
+            loop: true,
+            volume: 0.3
+        });
         this.createBackground();
         this.createPuzzleGrid();
         console.log("test");

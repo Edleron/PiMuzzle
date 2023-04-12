@@ -23,6 +23,8 @@ export class PuzzlePiece extends PIXI.utils.EventEmitter {
         this.touchPosition = { x: event.data.global.x, y: event.data.global.y };
         this.dragging = true;
         this.sprite.zIndex = 2;
+
+        Globals.resources.click.sound.play();
     }
 
     onTouchMove(event) {
@@ -45,6 +47,7 @@ export class PuzzlePiece extends PIXI.utils.EventEmitter {
     }
 
     onTouchEnd(event) {
+        Globals.resources.click.sound.play();
         this.dragging = false;
         this.sprite.zIndex = 1;
         this.emit("dragend");
