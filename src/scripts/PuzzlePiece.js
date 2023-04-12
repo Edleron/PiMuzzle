@@ -1,14 +1,16 @@
 import * as PIXI from "pixi.js";
+import TWEEN from "@tweenjs/tween.js";
 import { Globals } from "./Globals";
 
 export class PuzzlePiece extends PIXI.utils.EventEmitter {
     constructor(id, field) {
         super();
         this.sprite = new PIXI.Sprite(Globals.resources[`puzzle${id}`].texture);
-        this.field = field;
-        this.reset();
+        this.sprite.x = field.x;
+        this.sprite.y = field.y;
         this.sprite.anchor.set(0.5);
         this.sprite.scale.set(0.5);
+        this.field = field;
         this.setInteractive();
     }
 
@@ -42,8 +44,19 @@ export class PuzzlePiece extends PIXI.utils.EventEmitter {
     }
 
     reset() {
-        this.sprite.x = this.field.x;
-        this.sprite.y = this.field.y;
+        const tween = new TWEEN.Tween(this.sprite);
+        tween.to({ x: this.field.x, y: this.field.y }, 300);
+        tween.onStart(() => {
+            this.sprite.zIndex = 1;
+        });
+        tween.onUpdate(() => { });
+        tween.onComplete(() => {
+            this.sprite.zIndex = 0;
+        });
+        tween.easing(TWEEN.Easing.Back.Out);
+        tween.start();
+        // this.sprite.x = this.field.x;
+        // this.sprite.y = this.field.y;
     }
 
     onTouchEnd(event) {
